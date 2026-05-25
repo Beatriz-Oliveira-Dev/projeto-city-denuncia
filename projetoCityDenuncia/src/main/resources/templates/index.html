@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denúncia Urbana</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>City Denúncia</title>
 
     <style>
 
@@ -136,6 +141,7 @@
         }
 
     </style>
+
 </head>
 
 <body>
@@ -144,7 +150,7 @@
 
     <div class="icone">!</div>
 
-    <h1>Denúncia Urbana</h1>
+    <h1>City Denúncia</h1>
 
     <p class="subtitulo">
         Ajude a melhorar sua comunidade
@@ -153,27 +159,73 @@
     <div class="card">
 
         <div class="tabs">
-            <button class="tab ativo">Entrar</button>
-            <button class="tab">Criar Conta</button>
+
+            <button class="tab ativo"
+                    onclick="mostrarLogin()">
+                Entrar
+            </button>
+
+            <button class="tab"
+                    onclick="mostrarCadastro()">
+                Criar Conta
+            </button>
+
         </div>
 
-        <div class="formulario">
+        <!-- LOGIN -->
+
+        <div class="formulario"
+             id="loginForm">
 
             <label>Email *</label>
-            <input type="email" placeholder="seu@email.com">
+
+            <input type="email"
+                   placeholder="seu@email.com">
 
             <label>Senha *</label>
-            <input type="password" placeholder="Mínimo 6 caracteres">
 
-            <button class="btn">
+            <input type="password"
+                   placeholder="Mínimo 6 caracteres">
+
+            <button class="btn"
+                    onclick="entrar()">
                 Entrar
             </button>
 
             <div class="link">
+
                 <a href="#">
                     Esqueceu sua senha?
                 </a>
+
             </div>
+
+        </div>
+
+        <!-- CADASTRO -->
+
+        <div class="formulario"
+             id="cadastroForm"
+             style="display:none;">
+
+            <label>Nome Completo *</label>
+
+            <input type="text"
+                   placeholder="Digite seu nome">
+
+            <label>Email *</label>
+
+            <input type="email"
+                   placeholder="seu@email.com">
+
+            <label>Senha *</label>
+
+            <input type="password"
+                   placeholder="Mínimo 6 caracteres">
+
+            <button class="btn">
+                Criar Conta
+            </button>
 
         </div>
 
@@ -185,5 +237,42 @@
 
 </div>
 
+<script>
+
+    const tabs = document.querySelectorAll(".tab");
+
+    function mostrarLogin(){
+
+        document.getElementById("loginForm")
+            .style.display = "block";
+
+        document.getElementById("cadastroForm")
+            .style.display = "none";
+
+        tabs[0].classList.add("ativo");
+        tabs[1].classList.remove("ativo");
+    }
+
+    function mostrarCadastro(){
+
+        document.getElementById("loginForm")
+            .style.display = "none";
+
+        document.getElementById("cadastroForm")
+            .style.display = "block";
+
+        tabs[0].classList.remove("ativo");
+        tabs[1].classList.add("ativo");
+    }
+
+    function entrar(){
+
+        window.location.href = "/denuncia";
+
+    }
+
+</script>
+
 </body>
+
 </html>

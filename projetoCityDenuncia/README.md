@@ -4,6 +4,7 @@ Sistema web para registro de denúncias urbanas desenvolvido em Java com Spring 
 
 ## Tecnologias utilizadas
 
+```bash
 - Java 21
 - Spring Boot
 - Spring MVC
@@ -11,18 +12,28 @@ Sistema web para registro de denúncias urbanas desenvolvido em Java com Spring 
 - Maven
 - H2 Database
 - HTML/CSS
+```
 
 ## Funcionalidades atuais
 
+```bash
 - Página inicial
 - Tela de login
+- Tela de cadastro
+- Navegação entre páginas
 - Tela de denúncia
+- Cadastro de usuário
+- Login simples
 - Estrutura backend Spring Boot
 - Controller
 - Service
 - Repository
+- Entity Usuario
 - Entity Denuncia
-- Integração frontend + backend
+- Persistência com H2 Database
+- Frontend integrado ao Spring Boot
+```
+
 
 ## Estrutura do projeto
 
@@ -59,7 +70,23 @@ ProjetoCityDenunciaApplication.java
 ```bash
 http://localhost:8080
 ```
+## Banco H2
+
+Console H2:
+
+```bash
+http://localhost:8080/h2-console
+
+Configuração padrão:
+
+JDBC URL: jdbc:h2:mem:testdb
+User: sa
+Senha:
+```
+
 
 ## Status
 
+```bash
 🚧 Projeto acadêmico em desenvolvimento.
+```
