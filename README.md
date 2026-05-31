@@ -1,6 +1,6 @@
 # City Denúncia
 
-Sistema web para registro de denúncias urbanas desenvolvido em Java com Spring Boot.
+Sistema web para registro e acompanhamento de denúncias urbanas desenvolvido em Java com Spring Boot.
 
 ## Tecnologias utilizadas
 
@@ -12,28 +12,50 @@ Sistema web para registro de denúncias urbanas desenvolvido em Java com Spring 
 - Maven
 - H2 Database
 - HTML/CSS
+- CSS3
 ```
 
-## Funcionalidades atuais
+## Funcionalidades
+
+Usuários
+
+```bash
+- Cadastro de usuários
+- Login de usuários
+- Validação de e-mail duplicado
+- Persistência em banco de dados
+```
+
+Denúncias
+
+```bash
+- Cadastro de denúncias
+- Listagem de denúncias
+- Status automático ("ABERTA")
+- Registro automático da data de criação
+```
+
+Interface
 
 ```bash
 - Página inicial
 - Tela de login
 - Tela de cadastro
-- Navegação entre páginas
 - Tela de denúncia
-- Cadastro de usuário
-- Login simples
-- Estrutura backend Spring Boot
-- Controller
-- Service
-- Repository
-- Entity Usuario
-- Entity Denuncia
-- Persistência com H2 Database
-- Frontend integrado ao Spring Boot
+- Navegação entre páginas
 ```
 
+Backend
+
+```bash
+- Arquitetura em camadas
+Controller
+Service
+Repository
+Model
+- Integração com banco H2
+- API REST para integração com frontend
+```
 
 ## Estrutura do projeto
 
@@ -49,23 +71,75 @@ src/main/resources
 ├── static
 ```
 
+## Endpoints Disponíveis
+
+Cadastro de Usuário
+
+```bash
+POST /usuarios
+
+Exemplo:
+
+{
+  "nome": "Jose",
+  "email": "jose@email.com",
+  "senha": "123456"
+}
+```
+
+Login
+
+```bash
+POST /usuarios/login
+
+Exemplo:
+
+{
+  "email": "tadeu@email.com",
+  "senha": "123456"
+}
+```
+
+Cadastro de Denúncia
+
+```bash
+POST /denuncias
+
+Exemplo:
+
+{
+  "titulo": "Buraco na rua",
+  "categoria": "Infraestrutura",
+  "bairro": "Centro",
+  "endereco": "Rua das Flores",
+  "descricao": "Buraco grande causando acidentes",
+  "imagem": "foto.jpg"
+}
+```
+
+Listagem de Denúncias
+
+```bash
+GET /denuncias
+```
+
 ## Como executar
 
-1. Clonar o repositório
+1. Clone o repositório:
 
 ```bash
 git clone URL_DO_REPOSITORIO
 ```
 
-2. Abrir no IntelliJ
+2. Abra o projeto no IntelliJ IDEA.
 
-3. Executar:
+3. Execute:
 
 ```bash
 ProjetoCityDenunciaApplication.java
 ```
 
-4. Abrir:
+4. Acesse:
 
 ```bash
 http://localhost:8080
@@ -89,4 +163,6 @@ Senha:
 
 ```bash
 🚧 Projeto acadêmico em desenvolvimento.
+✅ Backend funcional para cadastro e consulta de usuários e denúncias.
+🚧 Frontend principal em desenvolvimento pela equipe do projeto.
 ```
