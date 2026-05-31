@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class DenunciaController {
 
@@ -22,12 +24,16 @@ public class DenunciaController {
         return "denuncia";
     }
 
-    @PostMapping("/salvar")
+    @PostMapping("/denuncias")
     @ResponseBody
-    public String salvar(@RequestBody Denuncia denuncia) {
+    public Denuncia salvar(@RequestBody Denuncia denuncia) {
 
-        service.salvar(denuncia);
+        return service.salvar(denuncia);
+    }
 
-        return "Denúncia salva com sucesso!";
+    @GetMapping("/denuncias")
+    @ResponseBody
+    public List<Denuncia> listar() {
+        return service.listar();
     }
 }

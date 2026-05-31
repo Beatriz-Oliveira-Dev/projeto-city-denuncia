@@ -14,11 +14,19 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<?> cadastrarUsuario(@RequestBody Usuario usuario) {
 
-        Usuario novoUsuario = usuarioService.salvarUsuario(usuario);
+        try {
 
-        return ResponseEntity.ok(novoUsuario);
+            Usuario novoUsuario = usuarioService.salvarUsuario(usuario);
+
+            return ResponseEntity.ok(novoUsuario);
+
+        } catch (RuntimeException e) {
+
+            return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
     }
 
     @PostMapping("/login")
