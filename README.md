@@ -57,11 +57,41 @@ Model
 - API REST para integração com frontend
 ```
 
+## Implementação de DTOs
+
+```bash
+DTOs implementados:
+
+- UsuarioRequestDTO
+- UsuarioResponseDTO
+- LoginRequestDTO
+- DenunciaRequestDTO
+- DenunciaResponseDTO
+```
+
+### Benefícios
+
+```bash
+- Evita exposição direta das entidades JPA
+- Controla os dados enviados e recebidos pela API
+- Facilita manutenção e evolução do sistema
+- Melhora a separação entre as camadas da aplicação
+```
+
+### Fluxo da aplicação
+
+```bash
+Controller -> DTO -> Service -> Repository -> Banco de Dados
+
+Banco de Dados -> Repository -> Service -> DTO -> Controller
+```
+
 ## Estrutura do projeto
 
 ```bash
 src/main/java
 ├── controller
+├── dto
 ├── model
 ├── repository
 ├── service
@@ -95,7 +125,7 @@ POST /usuarios/login
 Exemplo:
 
 {
-  "email": "tadeu@email.com",
+  "email": "jose@email.com",
   "senha": "123456"
 }
 ```

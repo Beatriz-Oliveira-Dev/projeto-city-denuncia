@@ -1,32 +1,18 @@
-package com.example.projetoCityDenuncia.model;
-
-import jakarta.persistence.*;
+package com.example.projetoCityDenuncia.dto;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "denuncias")
-public class Denuncia {
+public class DenunciaResponseDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String titulo;
     private String categoria;
     private String bairro;
     private String endereco;
     private String descricao;
     private String imagem;
-
     private String status;
-
     private LocalDateTime dataCriacao;
-
-    public Denuncia() {
-        this.dataCriacao = LocalDateTime.now();
-        this.status = "ABERTA";
-    }
 
     public Long getId() {
         return id;

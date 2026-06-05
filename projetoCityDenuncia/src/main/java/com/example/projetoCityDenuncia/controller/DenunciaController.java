@@ -1,6 +1,7 @@
 package com.example.projetoCityDenuncia.controller;
 
-import com.example.projetoCityDenuncia.model.Denuncia;
+import com.example.projetoCityDenuncia.dto.DenunciaRequestDTO;
+import com.example.projetoCityDenuncia.dto.DenunciaResponseDTO;
 import com.example.projetoCityDenuncia.service.DenunciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,14 +27,15 @@ public class DenunciaController {
 
     @PostMapping("/denuncias")
     @ResponseBody
-    public Denuncia salvar(@RequestBody Denuncia denuncia) {
+    public DenunciaResponseDTO salvar(
+            @RequestBody DenunciaRequestDTO dto) {
 
-        return service.salvar(denuncia);
+        return service.salvar(dto);
     }
 
     @GetMapping("/denuncias")
     @ResponseBody
-    public List<Denuncia> listar() {
+    public List<DenunciaResponseDTO> listar() {
         return service.listar();
     }
 }

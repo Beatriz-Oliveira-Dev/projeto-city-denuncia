@@ -1,16 +1,6 @@
-package com.example.projetoCityDenuncia.model;
+package com.example.projetoCityDenuncia.dto;
 
-import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
-
-@Entity
-@Table(name = "denuncias")
-public class Denuncia {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class DenunciaRequestDTO {
 
     private String titulo;
     private String categoria;
@@ -18,23 +8,6 @@ public class Denuncia {
     private String endereco;
     private String descricao;
     private String imagem;
-
-    private String status;
-
-    private LocalDateTime dataCriacao;
-
-    public Denuncia() {
-        this.dataCriacao = LocalDateTime.now();
-        this.status = "ABERTA";
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;
@@ -82,21 +55,5 @@ public class Denuncia {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDateTime dataCriacao) {
-        this.dataCriacao = dataCriacao;
     }
 }

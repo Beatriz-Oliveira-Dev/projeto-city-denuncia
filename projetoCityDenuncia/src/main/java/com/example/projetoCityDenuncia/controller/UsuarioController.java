@@ -1,6 +1,8 @@
 package com.example.projetoCityDenuncia.controller;
 
-import com.example.projetoCityDenuncia.model.Usuario;
+import com.example.projetoCityDenuncia.dto.LoginRequestDTO;
+import com.example.projetoCityDenuncia.dto.UsuarioRequestDTO;
+import com.example.projetoCityDenuncia.dto.UsuarioResponseDTO;
 import com.example.projetoCityDenuncia.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +16,14 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<?> cadastrarUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<?> cadastrarUsuario(
+            @RequestBody UsuarioRequestDTO dto) {
 
         try {
+            UsuarioResponseDTO response =
+                    usuarioService.salvarUsuario(dto);
 
-            Usuario novoUsuario = usuarioService.salvarUsuario(usuario);
-
-            return ResponseEntity.ok(novoUsuario);
+            return ResponseEntity.ok(response);
 
         } catch (RuntimeException e) {
 
@@ -30,11 +33,11 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Usuario usuario) {
+    public ResponseEntity<String> login(@RequestBody LoginRequestDTO dto) {
 
         boolean autenticado = usuarioService.autenticar(
-                usuario.getEmail(),
-                usuario.getSenha()
+                dto.getEmail(),
+                dto.getSenha()
         );
 
         if (autenticado) {
