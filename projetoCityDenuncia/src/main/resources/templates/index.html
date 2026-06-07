@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>City Denúncia</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(90deg,#2563eb,#06b6d4);
+            padding:20px;
+        }
+
+        .container{
+            width:100%;
+            max-width:430px;
+            text-align:center;
+        }
+
+        .icone{
+            width:75px;
+            height:75px;
+            background:white;
+            border-radius:50%;
+            margin:0 auto 20px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:42px;
+            color:#2563eb;
+            font-weight:bold;
+        }
+
+        h1{
+            color:white;
+            font-size:34px;
+            margin-bottom:10px;
+        }
+
+        .subtitulo{
+            color:white;
+            font-size:16px;
+            margin-bottom:25px;
+        }
+
+        .card{
+            background:#f5f5f5;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .tabs{
+            display:flex;
+        }
+
+        .tab{
+            width:50%;
+            padding:18px;
+            border:none;
+            background:#ececec;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .tab.ativo{
+            background:#f5f5f5;
+            color:#2563eb;
+            font-weight:bold;
+            border-bottom:3px solid #2563eb;
+        }
+
+        .formulario{
+            padding:28px;
+            text-align:left;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-size:15px;
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:14px;
+            border:1px solid #d1d5db;
+            border-radius:12px;
+            margin-bottom:20px;
+            font-size:15px;
+        }
+
+        .btn{
+            width:100%;
+            padding:14px;
+            border:none;
+            border-radius:12px;
+            background:#2563eb;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#1d4ed8;
+        }
+
+        .link{
+            text-align:center;
+            margin-top:18px;
+        }
+
+        .link a{
+            text-decoration:none;
+            color:#2563eb;
+            font-size:15px;
+        }
+
+        footer{
+            margin-top:22px;
+            color:white;
+            font-size:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="icone">!</div>
+
+    <h1>City Denúncia</h1>
+
+    <p class="subtitulo">
+        Ajude a melhorar sua comunidade
+    </p>
+
+    <div class="card">
+
+        <div class="tabs">
+
+            <button class="tab ativo"
+                    onclick="mostrarLogin()">
+                Entrar
+            </button>
+
+            <button class="tab"
+                    onclick="mostrarCadastro()">
+                Criar Conta
+            </button>
+
+        </div>
+
+        <!-- LOGIN -->
+
+        <div class="formulario"
+             id="loginForm">
+
+            <label>Email *</label>
+
+            <input type="email"
+                   placeholder="seu@email.com">
+
+            <label>Senha *</label>
+
+            <input type="password"
+                   placeholder="Mínimo 6 caracteres">
+
+            <button class="btn"
+                    onclick="entrar()">
+                Entrar
+            </button>
+
+            <div class="link">
+
+                <a href="#">
+                    Esqueceu sua senha?
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- CADASTRO -->
+
+        <div class="formulario"
+             id="cadastroForm"
+             style="display:none;">
+
+            <label>Nome Completo *</label>
+
+            <input type="text"
+                   placeholder="Digite seu nome">
+
+            <label>Email *</label>
+
+            <input type="email"
+                   placeholder="seu@email.com">
+
+            <label>Senha *</label>
+
+            <input type="password"
+                   placeholder="Mínimo 6 caracteres">
+
+            <button class="btn">
+                Criar Conta
+            </button>
+
+        </div>
+
+    </div>
+
+    <footer>
+        Sistema Distribuído - Projeto Acadêmico
+    </footer>
+
+</div>
+
+<script>
+
+    const tabs = document.querySelectorAll(".tab");
+
+    function mostrarLogin(){
+
+        document.getElementById("loginForm")
+            .style.display = "block";
+
+        document.getElementById("cadastroForm")
+            .style.display = "none";
+
+        tabs[0].classList.add("ativo");
+        tabs[1].classList.remove("ativo");
+    }
+
+    function mostrarCadastro(){
+
+        document.getElementById("loginForm")
+            .style.display = "none";
+
+        document.getElementById("cadastroForm")
+            .style.display = "block";
+
+        tabs[0].classList.remove("ativo");
+        tabs[1].classList.add("ativo");
+    }
+
+    function entrar(){
+
+        window.location.href = "/denuncia";
+
+    }
+
+</script>
+
+</body>
+
+</html>
